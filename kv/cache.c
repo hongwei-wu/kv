@@ -152,7 +152,7 @@ kv_page* cache_get_page(kv_page_cache *cache, uint32_t page) {
         return item->page;
     }
 
-    FATAL("cache page %ld cache out of memory", page)
+    FATAL("cache page %u cache out of memory", page)
 }
 
 void cache_set_page_num(kv_page_cache* cache, uint32_t pages){

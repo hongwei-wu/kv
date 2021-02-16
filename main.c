@@ -32,6 +32,11 @@ int main(int argc, char** argv) {
             {0,      0,                 0,     0 }
     };
 
+    if(argc <= 1){
+        cmd_help();
+        return 0;
+    }
+
     SET_LOG_LEVEL(LEVEL_DEBUG)
     kv_file *kv = kv_open(KV_NAME);
 
@@ -167,7 +172,7 @@ void cmd_insert_batch(kv_file *kv, const char *n){
     int64_t total = get_timestamp_usec() - now;
     int64_t tpr = total / num;
     printf("batch total time: %ld usec\r\n", total);
-    printf("batch time per record: %lld usec\r\n", tpr);
+    printf("batch time per record: %ld usec\r\n", tpr);
 }
 
 void cmd_clear(kv_file* kv){

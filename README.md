@@ -8,6 +8,18 @@
 * 缓存上限4M（1024页）
 * 按需保存内存中的脏数据
 
+## USAGE
+```shell
+kv help                -- show help
+kv get <key>           -- get key
+kv put <key:value>     -- put key
+kv del <key>           -- delete key
+kv list                -- list all keys
+kv ins <num>           -- insert key in batch
+kv clr                 -- clear all record
+kv ver                 -- verify all records
+```
+
 ### api
 ```c
 kv_file* kv_open(const char* name);
