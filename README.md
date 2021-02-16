@@ -1,5 +1,7 @@
 # kv
 
+## [DOC(点击进入)](doc/index.md)
+
 ## 介绍
 基于B+树实现的kv数据库（key、value只支持int64类型数据）。
 
