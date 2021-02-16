@@ -180,6 +180,9 @@ void kv_range(kv_file* kv, int64_t min, int64_t max, void* ptr, void (*callback)
 }
 
 void kv_iterate(kv_file*kv, void* ptr, void(*f)(void*, uint16_t, int64_t, int64_t)){
+    if(kv->root == NULL_PAGE){
+        return;
+    }
     kv_record *records;
     kv_page* p = kv_page_at(kv, kv->root);
     for(; p->type != KV_PAGE_DATA;){
@@ -677,4 +680,16 @@ void kv_set_signal_handler(kv_file* kv) {
     signal(SIGTERM, signal_handler);
     signal(SIGINT, signal_handler);
     _kv_for_signal = kv;
+}
+
+int kv_clear(kv_file *kv) {
+    kv->free = NULL_PAGE;
+    kv->root = NULL_PAGE;
+    kv->page_num = 0;
+    int fd = fileno(kv->f);
+    int ret = ftruncate(fd, offsetof(struct __kv_file, cache));
+    if(ret != 0){
+        return errno;
+    }
+    return 0;
 }

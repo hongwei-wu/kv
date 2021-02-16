@@ -13,6 +13,7 @@ int      kv_del(kv_file* kv, int64_t key);
 int      kv_get(kv_file* kv, int64_t key, int64_t* value);
 int      kv_next(kv_file* kv, int64_t sk, int64_t* key, int64_t* value);
 void     kv_range(kv_file* kv, int64_t min, int64_t max, void* ptr, void (*callback)(void* ptr, int64_t key, int64_t value));
+int      kv_clear(kv_file *kv);
 
 // for test
 kv_page* kv_page_create(kv_file* kv, uint16_t type);
