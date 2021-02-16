@@ -10,14 +10,13 @@
 
 ## USAGE
 ```shell
-kv help                -- show help
-kv get <key>           -- get key
-kv put <key:value>     -- put key
-kv del <key>           -- delete key
-kv list                -- list all keys
-kv ins <num>           -- insert key in batch
-kv clr                 -- clear all record
-kv ver                 -- verify all records
+kv --get <key>           -- get key
+kv --put <key:value>     -- put key value
+kv --del <key>           -- delete key
+kv --list                -- list all keys
+kv --ins <num>           -- insert key in batch
+kv --clr                 -- clear all record
+kv --ver                 -- verify all records
 ```
 
 ### api
@@ -29,6 +28,9 @@ int      kv_del(kv_file* kv, int64_t key);
 int      kv_get(kv_file* kv, int64_t key, int64_t* value);
 int      kv_next(kv_file* kv, int64_t sk, int64_t* key, int64_t* value);
 void     kv_range(kv_file* kv, int64_t min, int64_t max, void* ptr, void (*callback)(void* ptr, int64_t key, int64_t value));
+int      kv_clear(kv_file *kv);
+void     kv_iterate(kv_file *kv, void* ptr, void(*f)(void* ptr, uint16_t page, int64_t key, int64_t value));
+
 ```
 
 ## TODO LIST

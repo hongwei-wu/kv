@@ -79,14 +79,14 @@ int main(int argc, char** argv) {
 }
 
 void cmd_help() {
-    printf("kv help                -- show help\r\n"
-           "kv get <key>           -- get key\r\n"
-           "kv put <key:value>     -- put key\r\n"
-           "kv del <key>           -- delete key\r\n"
-           "kv list                -- list all keys\r\n"
-           "kv ins <num>           -- insert key in batch\r\n"
-           "kv clr                 -- clear all record\r\n"
-           "kv ver                 -- verify all records\r\n");
+    printf("kv --help                -- show help\r\n"
+           "kv --get <key>           -- get key\r\n"
+           "kv --put <key:value>     -- put key value\r\n"
+           "kv --del <key>           -- delete key\r\n"
+           "kv --list                -- list all keys\r\n"
+           "kv --ins <num>           -- insert key in batch\r\n"
+           "kv --clr                 -- clear all record\r\n"
+           "kv --ver                 -- verify all records\r\n");
 }
 
 int64_t str2int64(const char* str){
