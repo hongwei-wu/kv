@@ -23,7 +23,7 @@
 ![file page](images/file-page.png)
 
 * kv_page 数据页定义
-    * page 当前页页页码(0保留)
+    * page 当前页页码(0保留)
     * parent 父节点页码
     * next_page 兄弟节点页码(在叶子节点使用)
     * type 页类型(区分叶子节点和内部节点)
